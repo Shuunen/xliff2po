@@ -12,3 +12,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr\n"
 
+#: src/app/index.html
+msgid "introductionHeader"
+msgstr "Imaginez une entreprise"
+
+#: src/app/index.html
+msgid "introductionCta"
+msgstr "Commencer ici"
+

@@ -42,13 +42,22 @@ read(inputFile)
     const pretty = JSON.stringify(input, null, 4)
     write('sample.json', pretty)
     return read('template.po').then(template => {
+      const name = inputFile.split('.')[0]
+      const lang = input['source-language']
       const data = {
-        PROJECT_NAME: inputFile.split('.')[0],
+        PROJECT_NAME: name,
         GENERATOR_NAME: pkg.name,
         GENERATOR_VERSION: pkg.version,
-        LANGUAGE_CODE: input['source-language']
+        LANGUAGE_CODE: lang
       }
-      return write('sample.fr.po', fill(template, data))
+      let content = fill(template, data)
+      const translations = input.body['trans-unit']
+      translations.forEach(translation => {
+        content += '#: ' + translation['context-group'].context[0].$t + '\n'
+        content += 'msgid "' + translation.id + '"\n'
+        content += 'msgstr "' + translation.source.$t + '"\n\n'
+      })
+      return write(name + '.' + lang + '.po', content)
     })
   })
   .then(status => console.log('finnished with status :', status))

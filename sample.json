@@ -3,35 +3,57 @@
     "datatype": "plaintext",
     "original": "ng2.template",
     "body": {
-        "trans-unit": {
-            "id": "welcome",
-            "datatype": "html",
-            "source": {
-                "$t": "Bienvenue",
-                "x": [
-                    {
-                        "id": "START_ITALIC_TEXT",
-                        "ctype": "x-i"
-                    },
-                    {
-                        "id": "CLOSE_ITALIC_TEXT",
-                        "ctype": "x-i"
-                    }
-                ]
+        "trans-unit": [
+            {
+                "id": "introductionHeader",
+                "datatype": "html",
+                "source": {
+                    "$t": "Imaginez une entreprise"
+                },
+                "context-group": {
+                    "purpose": "location",
+                    "context": [
+                        {
+                            "context-type": "sourcefile",
+                            "$t": "src/app/index.html"
+                        },
+                        {
+                            "context-type": "linenumber",
+                            "$t": "19"
+                        }
+                    ]
+                }
             },
-            "context-group": {
-                "purpose": "location",
-                "context": [
-                    {
-                        "context-type": "sourcefile",
-                        "$t": "src/app/index.html"
-                    },
-                    {
-                        "context-type": "linenumber",
-                        "$t": "23"
-                    }
-                ]
+            {
+                "id": "introductionCta",
+                "datatype": "html",
+                "source": {
+                    "$t": "Commencer ici",
+                    "x": [
+                        {
+                            "id": "START_ITALIC_TEXT",
+                            "ctype": "x-i"
+                        },
+                        {
+                            "id": "CLOSE_ITALIC_TEXT",
+                            "ctype": "x-i"
+                        }
+                    ]
+                },
+                "context-group": {
+                    "purpose": "location",
+                    "context": [
+                        {
+                            "context-type": "sourcefile",
+                            "$t": "src/app/index.html"
+                        },
+                        {
+                            "context-type": "linenumber",
+                            "$t": "23"
+                        }
+                    ]
+                }
             }
-        }
+        ]
     }
 }

@@ -6,6 +6,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'arrow-parens': 'off',
+    'prefer-template': 'off',
     'comma-dangle': ['error', 'never'],
     'semi': ['error', 'never']
   }

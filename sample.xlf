@@ -2,8 +2,17 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="fr" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="welcome" datatype="html">
-        <source>Bienvenue <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
+      <trans-unit id="introductionHeader" datatype="html">
+        <source>
+        Imaginez une entreprise
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/index.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introductionCta" datatype="html">
+        <source>Commencer ici <x id="START_ITALIC_TEXT" ctype="x-i"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/index.html</context>
           <context context-type="linenumber">23</context>
