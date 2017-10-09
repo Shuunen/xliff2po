@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Convert xlf files from and to po files",
   "main": "index.js",
+  "bin": {
+    "xliff2po": "index.js"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/nodemon index.js sample.xlf"
   },
