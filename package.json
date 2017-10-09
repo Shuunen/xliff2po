@@ -1,6 +1,6 @@
 {
   "name": "xliff2po",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Convert xlf files from and to po files",
   "main": "index.js",
   "scripts": {
