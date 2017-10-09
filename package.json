@@ -1,0 +1,37 @@
+{
+  "name": "xliff2po",
+  "version": "0.0.1",
+  "description": "Convert xlf files from and to po files",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/nodemon index.js sample.xlf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shuunen/xliff2po.git"
+  },
+  "keywords": [
+    "xlf",
+    "xliff",
+    "po",
+    "converter",
+    "gettext"
+  ],
+  "author": "Romain Racamier-Lafon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shuunen/xliff2po/issues"
+  },
+  "homepage": "https://github.com/Shuunen/xliff2po#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "xml-mapping": "^1.7.1"
+  }
+}

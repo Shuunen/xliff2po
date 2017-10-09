@@ -1,0 +1,37 @@
+{
+    "source-language": "fr",
+    "datatype": "plaintext",
+    "original": "ng2.template",
+    "body": {
+        "trans-unit": {
+            "id": "welcome",
+            "datatype": "html",
+            "source": {
+                "$t": "Bienvenue",
+                "x": [
+                    {
+                        "id": "START_ITALIC_TEXT",
+                        "ctype": "x-i"
+                    },
+                    {
+                        "id": "CLOSE_ITALIC_TEXT",
+                        "ctype": "x-i"
+                    }
+                ]
+            },
+            "context-group": {
+                "purpose": "location",
+                "context": [
+                    {
+                        "context-type": "sourcefile",
+                        "$t": "src/app/index.html"
+                    },
+                    {
+                        "context-type": "linenumber",
+                        "$t": "23"
+                    }
+                ]
+            }
+        }
+    }
+}
