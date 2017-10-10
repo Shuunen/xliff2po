@@ -11,6 +11,7 @@ const createJson = false
 
 const log = (...stuff) => console.log(pkg.name, stuff.join(''))
 
+// read a file from disk
 const read = filepath => new Promise((resolve, reject) => {
   log('reading : ', filepath)
   fs.readFile(filepath, encoding, (err, content) => {
@@ -19,6 +20,7 @@ const read = filepath => new Promise((resolve, reject) => {
   })
 })
 
+// write file to disk
 const write = (filepath, content) => new Promise((resolve, reject) => {
   log('writing : ', filepath)
   fs.writeFile(filepath, content, encoding, (err) => {
@@ -27,6 +29,7 @@ const write = (filepath, content) => new Promise((resolve, reject) => {
   })
 })
 
+// fill a string template with data inside object
 const fill = (template, data) => {
   let content = template
   // log('using data :', JSON.stringify(data, null, 4))
@@ -36,6 +39,7 @@ const fill = (template, data) => {
   return content
 }
 
+// convert .xlf file to .po file
 const convert = (filepath) => {
   log('starting...')
   read(filepath)
@@ -68,7 +72,7 @@ const convert = (filepath) => {
     .then(status => log('finnished with status :', status))
 }
 
-// Init
+// init
 if (!inputFile) {
   log('miss argument, please specify xlf translation input file like :\nxliff2po path/to/my/translation-file.xlf')
 } else {
