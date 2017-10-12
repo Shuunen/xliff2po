@@ -7,6 +7,7 @@ module.exports = {
     'no-console': 'off',
     'arrow-parens': 'off',
     'prefer-template': 'off',
+    'new-cap': 'off',
     'comma-dangle': ['error', 'never'],
     'semi': ['error', 'never']
   }

@@ -8,12 +8,18 @@ const pkg = require('./package.json')
 const encoding = 'utf8'
 const inputFile = process.argv.slice(2)[0]
 const createJson = false
+const replaces = {
+  // '\\w': 'test',
+  // '\n<x id="LINE_BREAK" ctype="lb"\/>': '<br>',
+  '!!!': '!!'
+}
 
+// simple custom log
 const log = (...stuff) => console.log(pkg.name, stuff.join(''))
 
 // read a file from disk
 const read = filepath => new Promise((resolve, reject) => {
-  log('reading : ', filepath)
+  log('reading   : ', filepath)
   fs.readFile(filepath, encoding, (err, content) => {
     if (err) reject(err)
     else resolve(content)
@@ -22,7 +28,7 @@ const read = filepath => new Promise((resolve, reject) => {
 
 // write file to disk
 const write = (filepath, content) => new Promise((resolve, reject) => {
-  log('writing : ', filepath)
+  log('writing   : ', filepath)
   fs.writeFile(filepath, content, encoding, (err) => {
     if (err) reject(err)
     else resolve('success')
@@ -38,6 +44,19 @@ const fill = (template, data) => {
   })
   return content
 }
+
+// read text node properly
+const readTextNode = (input) => {
+  let str = (input.join ? input.join('<br>') : input) + '' // if there is multiple translation lines, we get an array
+  // log('reading text node : ' + str)
+  Object.keys(replaces).forEach(key => {
+    str = str.replace(new RegExp(key, 'gi'), replaces[key])
+  })
+  return str
+}
+
+// return a promise rejection
+const error = (str) => new Promise.reject(str)
 
 // convert .xlf file to .po file
 const convert = (filepath) => {
@@ -61,15 +80,22 @@ const convert = (filepath) => {
         }
         let content = fill(template, data)
         const translations = input.body['trans-unit']
+        if (!translations.length) {
+          return error('no translations found in xlf')
+        }
         translations.forEach(translation => {
           content += '#: ' + translation['context-group'].context[0].$t + '\n'
           content += 'msgid "' + translation.id + '"\n'
-          content += 'msgstr "' + translation.source.$t + '"\n\n'
+          content += 'msgstr "' + readTextNode(translation.source.$t) + '"\n\n'
         })
+        log('processed : ' + translations.length + ' translations')
         return write(name + '.' + lang + '.po', content)
       })
     })
-    .then(status => log('finnished with status :', status))
+    .then(status => {
+      log('finnished')
+      log('status : ', status)
+    })
 }
 
 // init
